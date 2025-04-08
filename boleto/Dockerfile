@@ -19,5 +19,7 @@ ARG JAR_FILE=target/boleto-0.0.1-SNAPSHOT.jar
 # Copia o JAR para a imagem
 COPY --from=build ${JAR_FILE} /boleto.jar
 
+COPY certs /app/certs
+
 # Define o entrypoint para executar a aplicação
 ENTRYPOINT ["java","-jar","/boleto.jar"]
