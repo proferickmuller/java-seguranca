@@ -1,0 +1,24 @@
+[ req ]
+default_bits       = 2048
+default_md         = sha256
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+
+[ req_distinguished_name ]
+countryName			= BR
+countryName_default		= BR
+stateOrProvinceName		= SP
+stateOrProvinceName_default	= Sao Paulo
+localityName			= Sao Paulo
+localityName_default		= Sao Paulo
+organizationName		= FIAP
+organizationName_default	= FIAP
+commonName			= boleto-service
+commonName_default		= boleto-service
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = boleto-app
+DNS.2 = localhost
