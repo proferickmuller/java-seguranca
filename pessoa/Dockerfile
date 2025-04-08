@@ -51,4 +51,6 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
 
 COPY --from=build /target/pessoa-0.0.1-SNAPSHOT.jar /pessoa.jar
 
+COPY certs /app/certs
+
 ENTRYPOINT ["java", "-Djava.awt.headless=true", "-jar","/pessoa.jar"]

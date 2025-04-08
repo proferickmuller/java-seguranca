@@ -11,3 +11,6 @@ logs/**
 keys/**
 !keys/.gitkeep
 !keys/*.cnf
+
+**/certs/*
+!**certs/.gitkeep
