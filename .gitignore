@@ -4,3 +4,6 @@ logs/**
 .codiumai.toml
 **/logs/*
 !**/logs/.gitkeep
+.vscode
+**/.vscode
+**/.idea
