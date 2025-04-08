@@ -1,0 +1,6 @@
+.idea
+logs/**
+!logs/.gitkeep
+.codiumai.toml
+**/logs/*
+!**/logs/.gitkeep
