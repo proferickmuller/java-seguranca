@@ -1,11 +1,10 @@
 services:
-
   ## =============================================================================================
   ## MICROSSERVIÇOS
   ##==============================================================================================
 
   postgres:
-    image: postgres:latest
+    image: docker.io/library/postgres:latest
     container_name: ms-database
     ports:
       - "5433:5432" # O banco dos microsserviços estará acessível em localhost:5433.
@@ -16,11 +15,10 @@ services:
     networks:
       - my_network
 
-  pessoa:
-    image: pessoa-app:latest
+  pessoa-app:
+    # image: pessoa:latest
     build:
-      context: ./pessoa # referência ao Dockerfile da aplicação pessoa
-    container_name: pessoa-app
+      context: ./pessoa
     ports:
       - "8080:8080"
     environment:
@@ -33,11 +31,10 @@ services:
     depends_on:
       - postgres
 
-  boleto:
-    image: boleto-app:latest
+  boleto-app:
+    # image: boleto:latest
     build:
       context: ./boleto # referência ao Dockerfile da aplicação boleto
-    container_name: boleto-app
     ports:
       - "8081:8081"
     environment:
@@ -53,7 +50,7 @@ services:
   ## KONG API GATEWAY
   ##==============================================================================================
   kong-database:
-    image: postgres:15
+    image: docker.io/library/postgres:15
     container_name: kong-database
     environment:
       POSTGRES_USER: kong
@@ -66,7 +63,7 @@ services:
       - my_network
 
   kong-migrations:
-    image: kong:latest
+    image: docker.io/library/kong:latest
     container_name: kong-migrations
     depends_on:
       - kong-database
@@ -82,7 +79,7 @@ services:
       - my_network
 
   kong:
-    image: kong:latest
+    image: docker.io/library/kong:latest
     container_name: kong
     depends_on:
       - kong-database
