@@ -14,3 +14,5 @@ keys/**
 
 **/certs/*
 !**certs/.gitkeep
+certs/*
+!certs/.gitkeep
